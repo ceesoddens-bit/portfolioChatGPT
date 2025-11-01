@@ -3,63 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video met logo en tekst</title>
+  <title>Hero Video met Logo & Tekst</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
       height: 100vh;
       overflow: hidden;
     }
 
-    .video-container {
-      position: relative;
-      width: 80%; /* pas aan naar wens */
-      max-width: 1000px;
-    }
-
-    video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .overlay-logo {
+    .hero video {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 120px; /* grootte van het logo */
-      opacity: 0.9;
-    }
-
-    .overlay-text {
-      position: absolute;
-      bottom: 30px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 24px;
+      width: auto;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+      padding: 0 20px;
+      /* optioneel: lichte overlay tint voor betere contrast */
+      /* background: rgba(0,0,0,0.4); */
+    }
+
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 120px; /* pas aan naar gewenste grootte */
+      z-index: 3;
+    }
+
+    .hero-text h1 {
+      margin: 0;
+      font-size: 3rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .hero-text h2 {
+      margin: 10px 0 0;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .hero-text h2 {
+        font-size: 1.2rem;
+      }
+      .logo {
+        width: 90px;
+        top: 20px;
+        left: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="video-container">
+
+  <div class="hero">
     <video autoplay muted loop playsinline>
       <source src="video.mp4" type="video/mp4">
+      <!-- eventueel: <source src="video.webm" type="video/webm"> -->
       Je browser ondersteunt geen video.
     </video>
 
-    <img src="logo.png" alt="Logo" class="overlay-logo">
+    <img src="logo.png" alt="Logo" class="logo">
 
-    <div class="overlay-text">
-      Jouw witte tekst over de video
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <h1>Jouw titel hier</h1>
+        <h2>Ondertekst of slogan hier</h2>
+      </div>
     </div>
   </div>
+
 </body>
 </html>
