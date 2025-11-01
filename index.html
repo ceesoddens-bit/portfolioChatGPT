@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video met logo en tekst</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-container {
+      position: relative;
+      width: 80%; /* pas aan naar wens */
+      max-width: 1000px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .overlay-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 120px; /* grootte van het logo */
+      opacity: 0.9;
+    }
+
+    .overlay-text {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+      Je browser ondersteunt geen video.
+    </video>
+
+    <img src="logo.png" alt="Logo" class="overlay-logo">
+
+    <div class="overlay-text">
+      Jouw witte tekst over de video
+    </div>
+  </div>
+</body>
+</html>
