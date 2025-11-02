@@ -13,6 +13,7 @@
             --gray-light: #f8f9fa;
             --gray-dark: #343a40;
             --white: #ffffff;
+            --black: #000000;
         }
 
         * {
@@ -27,6 +28,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            background-color: var(--black);
         }
 
         /* Navigation */
@@ -99,6 +101,16 @@
             object-fit: cover;
         }
 
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+
         .mobile-bg {
             display: none;
             position: absolute;
@@ -110,6 +122,16 @@
             background-size: cover;
             background-position: center;
             z-index: -1;
+        }
+
+        .mobile-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .overlay {
@@ -192,15 +214,15 @@
         /* Projects Section */
         #projects {
             padding: 5rem 2rem;
-            background: var(--gray-light);
-            color: var(--gray-dark);
+            background: var(--black);
+            color: var(--white);
         }
 
         #projects h2 {
             text-align: center;
             font-size: 3rem;
             margin-bottom: 3rem;
-            color: var(--navy);
+            color: var(--white);
         }
 
         .projects-grid {
@@ -280,6 +302,7 @@
             max-width: 1200px;
             margin: 0 auto;
             align-items: center;
+            background: var(--black);
         }
 
         #about img {
@@ -293,12 +316,12 @@
         .bio h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--navy);
+            color: var(--white);
         }
 
         .bio p {
             font-size: 1.1rem;
-            color: var(--gray-dark);
+            color: var(--white);
             margin-bottom: 1rem;
         }
 
@@ -479,6 +502,7 @@
     <section id="hero">
         <div class="video-background">
             <iframe src="https://player.vimeo.com/video/1132885086?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-overlay"></div>
         </div>
         <div class="mobile-bg"></div>
         <div class="overlay">
